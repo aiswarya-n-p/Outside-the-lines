@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #FAF7F2;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFDF9;
+  --text-main: #2C2621;
+  --text-muted: #6B6255;
+  --border-subtle: #EFE8DC;
+  --botanical-accent: #3B6748;
+  --peach-accent: #E07A5F;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.dark {
+  --bg-primary: #121815;
+  --bg-surface: #1A221E;
+  --bg-card: #1F2A25;
+  --text-main: #F3EFE9;
+  --text-muted: #A3B5AA;
+  --border-subtle: #2C3A32;
+  --botanical-accent: #6B9E78;
+  --peach-accent: #E8A598;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-serif-heading {
+  font-family: var(--font-serif);
+}
+
+/* Custom Botanical Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #CADA84;
+  border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #386343;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 253, 249, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(239, 232, 220, 0.8);
+}
+.dark .glass-card {
+  background: rgba(31, 42, 37, 0.75);
+  border: 1px solid rgba(44, 58, 50, 0.8);
+}
+
+/* Organic Gradient Backgrounds */
+.bg-botanical-gradient {
+  background: radial-gradient(circle at 10% 20%, rgba(74, 124, 89, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(224, 122, 95, 0.10) 0%, transparent 50%);
+}
+.dark .bg-botanical-gradient {
+  background: radial-gradient(circle at 10% 20%, rgba(107, 158, 120, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(232, 165, 152, 0.08) 0%, transparent 50%);
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+@keyframes breathePulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.animate-breathe {
+  animation: breathePulse 5s ease-in-out infinite;
+}

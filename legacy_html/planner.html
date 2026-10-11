@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Daily Planner | Outside the Lines</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Outside the Lines
+        </div>
+
+
+        <div class="nav-right">
+
+            <a
+                href="dashboard.html"
+                class="login-btn"
+            >
+                Dashboard
+            </a>
+
+
+            <div class="date-time">
+
+                <span id="current-date"></span>
+
+                <span id="current-time"></span>
+
+            </div>
+
+
+            <button
+                id="theme-toggle"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= PLANNER ================= -->
+
+    <main class="planner-container">
+
+
+        <!-- Page Heading -->
+
+        <section class="planner-header">
+
+            <div>
+
+                <p class="small-heading">
+                    YOUR DAY. YOUR PACE.
+                </p>
+
+
+                <h1>
+                    Today's Planner
+                </h1>
+
+
+                <p>
+                    Choose what matters today.
+                    You don't have to do everything.
+                </p>
+
+            </div>
+
+
+            <div class="planner-date-card">
+
+                <span>
+                    📅
+                </span>
+
+                <strong id="planner-date">
+                    Today
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DAILY PROGRESS ================= -->
+
+        <section class="planner-progress-card">
+
+            <div>
+
+                <p class="small-heading">
+                    TODAY'S PROGRESS
+                </p>
+
+
+                <h2 id="planner-progress-text">
+                    0% Complete
+                </h2>
+
+            </div>
+
+
+            <div class="planner-progress-bar">
+
+                <div
+                    id="planner-progress-fill"
+                    class="planner-progress-fill"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ADD TASK ================= -->
+
+        <section class="add-task-card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-heading">
+                        ADD SOMETHING
+                    </p>
+
+
+                    <h2>
+                        What do you want to accomplish?
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="task-form">
+
+
+                <!-- Task -->
+
+                <div class="form-group">
+
+                    <label for="task-name">
+                        Task
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="task-name"
+                        placeholder="Example: Practice SQL joins"
+                    >
+
+                </div>
+
+
+
+                <!-- Skill -->
+
+                <div class="form-group">
+
+                    <label for="task-skill">
+                        Skill
+                    </label>
+
+
+                    <select id="task-skill">
+
+                        <option value="">
+                            Select a skill
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Duration -->
+
+                <div class="form-group">
+
+                    <label for="task-duration">
+                        Duration
+                    </label>
+
+
+                    <select id="task-duration">
+
+                        <option value="">
+                            Select time
+                        </option>
+
+                        <option value="15 minutes">
+                            15 minutes
+                        </option>
+
+                        <option value="30 minutes">
+                            30 minutes
+                        </option>
+
+                        <option value="45 minutes">
+                            45 minutes
+                        </option>
+
+                        <option value="1 hour">
+                            1 hour
+                        </option>
+
+                        <option value="2 hours">
+                            2 hours
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="primary-btn add-task-btn"
+                onclick="addTask()"
+            >
+                + Add Task
+            </button>
+
+        </section>
+
+
+
+        <!-- ================= TODAY'S TASKS ================= -->
+
+        <section class="tasks-section">
+
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-heading">
+                        YOUR TASKS
+                    </p>
+
+
+                    <h2>
+                        Today's Focus
+                    </h2>
+
+                </div>
+
+
+                <span id="task-count">
+                    0 tasks
+                </span>
+
+            </div>
+
+
+
+            <!-- Tasks will appear here -->
+
+            <div
+                id="task-list"
+                class="task-list"
+            >
+
+                <div
+                    id="empty-tasks"
+                    class="empty-tasks"
+                >
+
+                    <div>
+                        🌱
+                    </div>
+
+
+                    <h3>
+                        Nothing planned yet.
+                    </h3>
+
+
+                    <p>
+                        Add one small task to get started.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MOTIVATION ================= -->
+
+        <section class="planner-quote">
+
+            <div>
+                💚
+            </div>
+
+
+            <h2>
+                Small progress is still progress.
+            </h2>
+
+
+            <p>
+                You don't need a perfect day.
+                You just need a meaningful one.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Outside the Lines
+        </div>
+
+
+        <p>
+            Because everyone's journey is different.
+        </p>
+
+
+        <p class="copyright">
+            © 2026 Outside the Lines
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

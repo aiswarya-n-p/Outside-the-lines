@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Daily Check-in | Outside the Lines</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Outside the Lines
+        </div>
+
+
+        <div class="nav-right">
+
+            <a
+                href="dashboard.html"
+                class="login-btn"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="planner.html"
+                class="login-btn"
+            >
+                Planner
+            </a>
+
+
+            <a
+                href="notes.html"
+                class="login-btn"
+            >
+                Notes
+            </a>
+
+
+            <div class="date-time">
+
+                <span id="current-date"></span>
+
+                <span id="current-time"></span>
+
+            </div>
+
+
+            <button
+                id="theme-toggle"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= CHECK-IN ================= -->
+
+    <main class="checkin-container">
+
+
+        <!-- HEADER -->
+
+        <section class="checkin-header">
+
+            <p class="small-heading">
+                PAUSE. REFLECT. CONTINUE.
+            </p>
+
+
+            <h1>
+                How are you feeling today?
+            </h1>
+
+
+            <p>
+                There is no right answer.
+                Just check in with yourself.
+            </p>
+
+        </section>
+
+
+
+        <!-- CHECK-IN CARD -->
+
+        <section class="checkin-card">
+
+
+            <h2>
+                Choose how you feel
+            </h2>
+
+
+            <div class="mood-options">
+
+
+                <button
+                    type="button"
+                    class="mood-option"
+                    onclick="selectMood(this, 'Great')"
+                >
+
+                    <span>
+                        😊
+                    </span>
+
+                    <strong>
+                        Great
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="mood-option"
+                    onclick="selectMood(this, 'Good')"
+                >
+
+                    <span>
+                        🙂
+                    </span>
+
+                    <strong>
+                        Good
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="mood-option"
+                    onclick="selectMood(this, 'Okay')"
+                >
+
+                    <span>
+                        😐
+                    </span>
+
+                    <strong>
+                        Okay
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="mood-option"
+                    onclick="selectMood(this, 'Low')"
+                >
+
+                    <span>
+                        😔
+                    </span>
+
+                    <strong>
+                        Low
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="mood-option"
+                    onclick="selectMood(this, 'Overwhelmed')"
+                >
+
+                    <span>
+                        😫
+                    </span>
+
+                    <strong>
+                        Overwhelmed
+                    </strong>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- REFLECTION -->
+
+            <div class="checkin-reflection">
+
+                <label for="checkin-note">
+                    What's on your mind today?
+                </label>
+
+
+                <textarea
+                    id="checkin-note"
+                    rows="6"
+                    placeholder="You can write anything here — what you're thinking, what you're worried about, what you're looking forward to, or simply how your day is going..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SAVE -->
+
+            <button
+                type="button"
+                class="primary-btn checkin-save-btn"
+                onclick="saveCheckin()"
+            >
+                Save Today's Check-in →
+            </button>
+
+
+            <p
+                id="checkin-message"
+                class="checkin-message"
+            ></p>
+
+        </section>
+
+
+
+        <!-- PREVIOUS CHECK-IN -->
+
+        <section class="previous-checkin">
+
+            <p class="small-heading">
+                YOUR REFLECTION
+            </p>
+
+
+            <h2>
+                A little reminder
+            </h2>
+
+
+            <p>
+                Some days will be productive.
+                Some days will not.
+                Both are part of your journey.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Outside the Lines
+        </div>
+
+
+        <p>
+            Because everyone's journey is different.
+        </p>
+
+
+        <p class="copyright">
+            © 2026 Outside the Lines
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

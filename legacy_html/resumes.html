@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Vault · Outside the Lines</title>
+    <meta name="description" content="Store and manage all your tailored resumes in one place, organised by job role.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resumes.css">
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ANIMATIONS ================= -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+    <header class="navbar">
+        <a href="index.html" class="logo">Outside the Lines</a>
+        <div class="nav-right">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <a href="dashboard.html" class="login-btn">Dashboard</a>
+            <button id="theme-toggle" class="theme-btn" type="button">🌙</button>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="rv-main">
+
+        <!-- Page Header -->
+        <div class="rv-page-header">
+            <div class="rv-header-text">
+                <p class="small-heading">YOUR CAREER TOOLKIT</p>
+                <h1>Resume <span>Vault</span></h1>
+                <p class="rv-subtitle">One place for all your tailored resumes — organised by role, ready to send.</p>
+            </div>
+            <button class="primary-btn" id="rv-open-modal-btn" type="button">+ Add Resume</button>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="rv-stats-bar">
+            <div class="rv-stat">
+                <span class="rv-stat-number" id="rv-total-count">0</span>
+                <span class="rv-stat-label">Total Resumes</span>
+            </div>
+            <div class="rv-stat-divider"></div>
+            <div class="rv-stat">
+                <span class="rv-stat-number" id="rv-roles-count">0</span>
+                <span class="rv-stat-label">Unique Roles</span>
+            </div>
+            <div class="rv-stat-divider"></div>
+            <div class="rv-stat">
+                <span class="rv-stat-number" id="rv-latest-label">—</span>
+                <span class="rv-stat-label">Last Added</span>
+            </div>
+        </div>
+
+        <!-- Search & Filter Toolbar -->
+        <div class="rv-toolbar">
+            <div class="rv-search-wrap">
+                <span class="rv-search-icon">🔍</span>
+                <input
+                    type="text"
+                    id="rv-search"
+                    class="rv-search"
+                    placeholder="Search by role or filename…"
+                    autocomplete="off"
+                />
+            </div>
+            <select id="rv-filter-role" class="rv-select">
+                <option value="">All Roles</option>
+            </select>
+        </div>
+
+        <!-- Resume Grid -->
+        <div class="rv-grid" id="rv-grid">
+            <!-- Empty State -->
+            <div class="rv-empty" id="rv-empty">
+                <div class="rv-empty-icon">📄</div>
+                <h3>No resumes yet</h3>
+                <p>Add your first resume to get started.</p>
+                <button class="primary-btn" id="rv-empty-add-btn" type="button">+ Add Resume</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= ADD / EDIT MODAL ================= -->
+    <div class="rv-modal-overlay" id="rv-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="rv-modal-title">
+        <div class="rv-modal">
+            <div class="rv-modal-header">
+                <h2 id="rv-modal-title">Add Resume</h2>
+                <button class="rv-modal-close" id="rv-modal-close" type="button" aria-label="Close">✕</button>
+            </div>
+            <form id="rv-form" novalidate>
+                <!-- Job Role -->
+                <div class="rv-field">
+                    <label for="rv-role-input" class="rv-label">Job Role *</label>
+                    <input
+                        type="text"
+                        id="rv-role-input"
+                        class="rv-input"
+                        placeholder="e.g. Data Analyst, Frontend Developer"
+                        maxlength="80"
+                        required
+                    />
+                    <span class="rv-field-hint">What role is this resume tailored for?</span>
+                </div>
+                <!-- Resume PDF -->
+                <div class="rv-field" id="rv-file-field">
+                    <label class="rv-label">Resume PDF *</label>
+                    <label class="rv-file-drop" id="rv-file-drop" for="rv-file-input">
+                        <span class="rv-file-drop-icon">📎</span>
+                        <span id="rv-file-name-display">Click or drag &amp; drop a PDF file here</span>
+                        <input type="file" id="rv-file-input" accept=".pdf,application/pdf" class="rv-file-hidden" />
+                    </label>
+                    <span class="rv-field-hint">Max 10 MB · PDF only</span>
+                </div>
+                <!-- Note (optional) -->
+                <div class="rv-field">
+                    <label for="rv-note-input" class="rv-label">Note <span class="rv-optional">(optional)</span></label>
+                    <textarea
+                        id="rv-note-input"
+                        class="rv-input rv-textarea"
+                        placeholder="e.g. Tailored for startups, emphasises Python skills"
+                        rows="3"
+                        maxlength="200"
+                    ></textarea>
+                </div>
+                <!-- Error -->
+                <p class="rv-form-error" id="rv-form-error"></p>
+                <!-- Actions -->
+                <div class="rv-modal-actions">
+                    <button type="button" class="secondary-btn" id="rv-cancel-btn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="rv-save-btn">Save Resume</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= PDF VIEWER MODAL ================= -->
+    <div class="rv-modal-overlay rv-viewer-overlay" id="rv-viewer-overlay" role="dialog" aria-modal="true" aria-label="PDF Preview">
+        <div class="rv-viewer-modal">
+            <div class="rv-modal-header">
+                <h2 id="rv-viewer-title">Preview</h2>
+                <button class="rv-modal-close" id="rv-viewer-close" type="button" aria-label="Close">✕</button>
+            </div>
+            <iframe id="rv-viewer-frame" class="rv-viewer-frame" title="Resume PDF Preview"></iframe>
+        </div>
+    </div>
+
+    <!-- ================= DELETE CONFIRM MODAL ================= -->
+    <div class="rv-modal-overlay rv-confirm-overlay" id="rv-confirm-overlay" role="dialog" aria-modal="true">
+        <div class="rv-confirm-modal">
+            <div class="rv-confirm-icon">🗑️</div>
+            <h3>Delete this resume?</h3>
+            <p id="rv-confirm-text">This action cannot be undone.</p>
+            <div class="rv-modal-actions">
+                <button type="button" class="secondary-btn" id="rv-confirm-cancel">Keep it</button>
+                <button type="button" class="rv-delete-confirm-btn" id="rv-confirm-delete">Yes, delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TOAST ================= -->
+    <div class="rv-toast" id="rv-toast" role="status" aria-live="polite"></div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="js/script.js"></script>
+    <script src="js/resumes.js"></script>
+
+</body>
+</html>

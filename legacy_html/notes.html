@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Notes | Outside the Lines</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Outside the Lines
+        </div>
+
+
+        <div class="nav-right">
+
+            <a
+                href="dashboard.html"
+                class="login-btn"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="planner.html"
+                class="login-btn"
+            >
+                Planner
+            </a>
+
+
+            <div class="date-time">
+
+                <span id="current-date"></span>
+
+                <span id="current-time"></span>
+
+            </div>
+
+
+            <button
+                id="theme-toggle"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= NOTES PAGE ================= -->
+
+    <main class="notes-container">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="notes-header">
+
+            <div>
+
+                <p class="small-heading">
+                    YOUR LEARNING SPACE
+                </p>
+
+
+                <h1>
+                    Notes & Journal
+                </h1>
+
+
+                <p>
+                    Capture what you learn,
+                    what you discover, and what
+                    you want to remember.
+                </p>
+
+            </div>
+
+
+            <div class="notes-header-icon">
+                📝
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ADD NOTE ================= -->
+
+        <section class="note-editor-card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-heading">
+                        WRITE SOMETHING
+                    </p>
+
+
+                    <h2>
+                        Add a new note
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="note-form">
+
+
+                <!-- NOTE TITLE -->
+
+                <div class="form-group">
+
+                    <label for="note-title">
+                        Title
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="note-title"
+                        placeholder="Example: SQL Joins"
+                    >
+
+                </div>
+
+
+
+                <!-- NOTE SKILL -->
+
+                <div class="form-group">
+
+                    <label for="note-skill">
+                        Skill
+                    </label>
+
+
+                    <select id="note-skill">
+
+                        <option value="">
+                            Select a skill
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- NOTE CONTENT -->
+
+            <div class="form-group note-content-group">
+
+                <label for="note-content">
+                    Your Note
+                </label>
+
+
+                <textarea
+                    id="note-content"
+                    rows="7"
+                    placeholder="Write what you learned, important concepts, mistakes, ideas, or anything you want to remember..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SAVE BUTTON -->
+
+            <button
+                class="primary-btn"
+                onclick="saveNote()"
+            >
+                Save Note →
+            </button>
+
+        </section>
+
+
+
+        <!-- ================= SAVED NOTES ================= -->
+
+        <section class="saved-notes-section">
+
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-heading">
+                        YOUR KNOWLEDGE
+                    </p>
+
+
+                    <h2>
+                        Saved Notes
+                    </h2>
+
+                </div>
+
+
+                <span id="notes-count">
+                    0 notes
+                </span>
+
+            </div>
+
+
+
+            <!-- NOTES WILL APPEAR HERE -->
+
+            <div
+                id="notes-list"
+                class="notes-list"
+            >
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    id="empty-notes"
+                    class="empty-notes"
+                >
+
+                    <div>
+                        💡
+                    </div>
+
+
+                    <h3>
+                        Your notes will appear here.
+                    </h3>
+
+
+                    <p>
+                        Write down something useful
+                        and save it for later.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= JOURNAL PROMPT ================= -->
+
+        <section class="journal-prompt">
+
+            <div>
+                🌱
+            </div>
+
+
+            <h2>
+                What did you learn today?
+            </h2>
+
+
+            <p>
+                Even one small idea is worth remembering.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Outside the Lines
+        </div>
+
+
+        <p>
+            Because everyone's journey is different.
+        </p>
+
+
+        <p class="copyright">
+            © 2026 Outside the Lines
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

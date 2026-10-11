@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Your Journey | Outside the Lines</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+
+    <!-- ================= ONBOARDING ================= -->
+
+    <main class="onboarding-page">
+
+
+        <div class="onboarding-card">
+
+
+            <!-- Progress -->
+
+            <div class="onboarding-progress">
+
+                <div class="progress-info">
+
+                    <span>
+                        Your journey
+                    </span>
+
+                    <span>
+                        <span id="step-number">1</span> / 4
+                    </span>
+
+                </div>
+
+
+                <div class="onboarding-progress-bar">
+
+                    <div
+                        id="onboarding-progress"
+                        class="onboarding-progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= STEP 1 ================= -->
+
+            <section
+                class="onboarding-step active"
+                id="step-1"
+            >
+
+                <div class="onboarding-icon">
+                    🌱
+                </div>
+
+
+                <h1>
+                    Let's create your journey.
+                </h1>
+
+
+                <p class="onboarding-description">
+
+                    Everyone's path is different.
+                    Let's start with yours.
+
+                </p>
+
+
+                <label for="goal">
+                    What are you working toward?
+                </label>
+
+
+                <input
+                    type="text"
+                    id="goal"
+                    placeholder="Example: Become a Data Analyst"
+                >
+
+
+                <div class="onboarding-navigation">
+
+                    <a
+                        href="signup.html"
+                        class="back-btn"
+                    >
+                        ← Back
+                    </a>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="nextStep(1)"
+                    >
+                        Continue →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= STEP 2 ================= -->
+
+            <section
+                class="onboarding-step"
+                id="step-2"
+            >
+
+                <div class="onboarding-icon">
+                    🎯
+                </div>
+
+
+                <h1>
+                    What are you learning?
+                </h1>
+
+
+                <p class="onboarding-description">
+
+                    Add the skills you want to
+                    improve or learn.
+
+                </p>
+
+
+                <!-- Skill Input -->
+
+                <div class="skill-input">
+
+                    <input
+                        type="text"
+                        id="skill-input"
+                        placeholder="Example: SQL"
+                    >
+
+
+                    <button
+                        type="button"
+                        onclick="addSkill()"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <!-- Skills -->
+
+                <div
+                    id="skill-list"
+                    class="skill-list"
+                ></div>
+
+
+                <p class="input-hint">
+
+                    You can add multiple skills.
+
+                </p>
+
+
+                <!-- Navigation -->
+
+                <div class="onboarding-navigation">
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        onclick="previousStep(2)"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="nextStep(2)"
+                    >
+                        Continue →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= STEP 3 ================= -->
+
+            <section
+                class="onboarding-step"
+                id="step-3"
+            >
+
+                <div class="onboarding-icon">
+                    ⏰
+                </div>
+
+
+                <h1>
+                    How much time can you give?
+                </h1>
+
+
+                <p class="onboarding-description">
+
+                    Be realistic.
+                    This isn't a competition.
+
+                </p>
+
+
+                <div class="time-options">
+
+
+                    <button
+                        type="button"
+                        onclick="selectTime(this, '30 minutes')"
+                    >
+                        <strong>30 min</strong>
+
+                        <span>
+                            Light & manageable
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="selectTime(this, '1 hour')"
+                    >
+                        <strong>1 hour</strong>
+
+                        <span>
+                            Balanced
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="selectTime(this, '2 hours')"
+                    >
+                        <strong>2 hours</strong>
+
+                        <span>
+                            Focused
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="selectTime(this, '3+ hours')"
+                    >
+                        <strong>3+ hours</strong>
+
+                        <span>
+                            Intensive
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <!-- Navigation -->
+
+                <div class="onboarding-navigation">
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        onclick="previousStep(3)"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="nextStep(3)"
+                    >
+                        Continue →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= STEP 4 ================= -->
+
+            <section
+                class="onboarding-step"
+                id="step-4"
+            >
+
+                <div class="onboarding-icon">
+                    🚀
+                </div>
+
+
+                <h1>
+                    When do you want to reach your goal?
+                </h1>
+
+
+                <p class="onboarding-description">
+
+                    Choose a target date.
+                    You can always change it later.
+
+                </p>
+
+
+                <label for="target-date">
+                    Target date
+                </label>
+
+
+                <input
+                    type="date"
+                    id="target-date"
+                >
+
+
+                <!-- Navigation -->
+
+                <div class="onboarding-navigation">
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        onclick="previousStep(4)"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="finishOnboarding()"
+                    >
+                        Create My Journey →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

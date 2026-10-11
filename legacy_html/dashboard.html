@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | Outside the Lines</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Background -->
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Outside the Lines
+        </div>
+
+
+        <div class="nav-right">
+
+            <div class="date-time">
+
+                <span id="current-date"></span>
+
+                <span id="current-time"></span>
+
+            </div>
+
+
+            <button
+                id="theme-toggle"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="dashboard-container">
+
+
+        <!-- Welcome -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <p class="small-heading">
+                    YOUR JOURNEY. YOUR RULES.
+                </p>
+
+
+                <h1>
+                    Hello, <span id="user-name">there</span> 👋
+                </h1>
+
+
+                <p>
+                    Let's make today count — without
+                    turning progress into pressure.
+                </p>
+
+            </div>
+
+
+            <div class="journey-status">
+
+                <span>
+                    🚀 Journey Active
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= GOAL ================= -->
+
+        <section class="goal-card">
+
+            <div class="goal-icon">
+                🎯
+            </div>
+
+
+            <div class="goal-content">
+
+                <p>
+                    YOUR CURRENT GOAL
+                </p>
+
+
+                <h2 id="user-goal">
+                    Your goal will appear here.
+                </h2>
+
+
+                <div class="goal-date">
+
+                    <span>
+                        📅 Target date:
+                    </span>
+
+                    <strong id="target-date-display">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SUMMARY CARDS ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Skills -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+
+                <h3>
+                    Your Skills
+                </h3>
+
+
+                <p class="card-description">
+                    Skills you're currently working on.
+                </p>
+
+
+                <div
+                    id="dashboard-skills"
+                    class="dashboard-skills"
+                ></div>
+
+            </div>
+
+
+
+            <!-- Time -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ⏰
+                </div>
+
+
+                <h3>
+                    Your Available Time
+                </h3>
+
+
+                <p class="card-description">
+                    The time you've chosen to give each day.
+                </p>
+
+
+                <div
+                    id="available-time"
+                    class="big-value"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+
+            <!-- Progress -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📈
+                </div>
+
+
+                <h3>
+                    Today's Progress
+                </h3>
+
+
+                <p class="card-description">
+                    Progress builds one small step at a time.
+                </p>
+
+
+                <div class="dashboard-progress">
+
+                    <div class="progress-number">
+                        0%
+                    </div>
+
+
+                    <div class="dashboard-progress-bar">
+
+                        <div
+                            class="dashboard-progress-fill"
+                            id="dashboard-progress"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TODAY ================= -->
+
+        <!-- ================= TODAY ================= -->
+
+<section class="today-section">
+
+    <div class="section-title">
+
+        <div>
+
+            <p class="small-heading">
+                TODAY
+            </p>
+
+            <h2>
+                Start with one thing.
+            </h2>
+
+        </div>
+
+        <span class="today-date">
+            ✨ Your focus for today
+        </span>
+
+    </div>
+
+
+    <div class="today-dashboard-grid">
+
+
+        <!-- TODAY'S TASKS -->
+
+        <div class="today-card dashboard-today-card">
+
+            <div class="today-card-icon">
+                📋
+            </div>
+
+            <div>
+
+                <h3>
+                    Today's Tasks
+                </h3>
+
+                <p>
+                    <strong id="today-total-tasks">
+                        0
+                    </strong>
+                    tasks planned
+                </p>
+
+                <p>
+                    <strong id="today-completed-tasks">
+                        0
+                    </strong>
+                    completed
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TODAY'S PROGRESS -->
+
+        <div class="today-card dashboard-today-card">
+
+            <div class="today-card-icon">
+                📈
+            </div>
+
+            <div>
+
+                <h3>
+                    Today's Progress
+                </h3>
+
+                <div class="today-progress-number">
+
+                    <strong id="today-progress-percentage">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="today-small-progress-bar">
+
+                    <div
+                        id="today-progress-fill"
+                        class="today-small-progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TODAY'S MOOD -->
+
+        <div class="today-card dashboard-today-card">
+
+            <div class="today-card-icon">
+                🌱
+            </div>
+
+            <div>
+
+                <h3>
+                    Today's Check-in
+                </h3>
+
+                <p
+                    id="today-mood"
+                    class="today-mood"
+                >
+                    Not checked in yet.
+                </p>
+
+                <a
+                    href="checkin.html"
+                    class="today-checkin-link"
+                >
+                    Check in →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="today-action">
+
+        <button
+            class="primary-btn"
+            onclick="window.location.href='planner.html'"
+        >
+            Go to Today's Planner →
+        </button>
+
+    </div>
+
+</section>
+
+
+        <!-- ================= QUICK ACTIONS ================= -->
+
+        <!-- ================= QUICK ACTIONS ================= -->
+
+<div class="quick-action-grid">
+
+    <!-- Planner -->
+
+    <button
+        class="quick-card"
+        onclick="window.location.href='planner.html'"
+    >
+
+        <span>
+            📅
+        </span>
+
+        <strong>
+            Plan Your Day
+        </strong>
+
+        <small>
+            Organize your tasks
+        </small>
+
+    </button>
+
+
+    <!-- Notes -->
+
+    <button
+        class="quick-card"
+        onclick="window.location.href='notes.html'"
+    >
+
+        <span>
+            📝
+        </span>
+
+        <strong>
+            Your Notes
+        </strong>
+
+        <small>
+            Save learning notes
+        </small>
+
+    </button>
+
+
+    <!-- Progress -->
+
+    <button
+        class="quick-card"
+        onclick="window.location.href='progress.html'"
+    >
+
+        <span>
+            📊
+        </span>
+
+        <strong>
+            See Your Progress
+        </strong>
+
+        <small>
+            Track your growth
+        </small>
+
+    </button>
+
+
+    <!-- Daily Check-in -->
+
+    <button
+        class="quick-card"
+        onclick="window.location.href='checkin.html'"
+    >
+
+        <span>
+            🌱
+        </span>
+
+        <strong>
+            Daily Check-in
+        </strong>
+
+        <small>
+            Reflect on your day
+        </small>
+
+    </button>
+
+</div>

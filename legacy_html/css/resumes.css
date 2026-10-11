@@ -1,0 +1,899 @@
+/* =========================================================
+   RESUME VAULT — resumes.css
+   Extends style.css — uses same design tokens
+   ========================================================= */
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.rv-main {
+    padding: 60px 8% 120px;
+    min-height: 80vh;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.rv-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 42px;
+    flex-wrap: wrap;
+}
+
+.rv-header-text h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 8px 0 10px;
+}
+
+.rv-header-text h1 span {
+    color: #7c3aed;
+}
+
+.rv-subtitle {
+    font-size: 17px;
+    color: #66667a;
+    max-width: 520px;
+}
+
+
+/* =========================================================
+   STATS BAR
+   ========================================================= */
+
+.rv-stats-bar {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 22px 30px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #e7e5f0;
+    backdrop-filter: blur(14px);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.rv-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.rv-stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #7c3aed;
+    line-height: 1;
+}
+
+.rv-stat-label {
+    font-size: 12px;
+    color: #868696;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.rv-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: #e0ddef;
+}
+
+
+/* =========================================================
+   TOOLBAR (Search + Filter)
+   ========================================================= */
+
+.rv-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.rv-search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.rv-search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.rv-search {
+    width: 100%;
+    padding: 13px 16px 13px 46px;
+    border-radius: 14px;
+    border: 1px solid #dddded;
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-family: inherit;
+    color: #17172f;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+}
+
+.rv-search:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.rv-select {
+    padding: 13px 18px;
+    border-radius: 14px;
+    border: 1px solid #dddded;
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-family: inherit;
+    color: #17172f;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.25s ease;
+    min-width: 160px;
+}
+
+.rv-select:focus {
+    border-color: #7c3aed;
+}
+
+
+/* =========================================================
+   RESUME GRID
+   ========================================================= */
+
+.rv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================================================
+   RESUME CARD
+   ========================================================= */
+
+.rv-card {
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #e7e5f0;
+    box-shadow: 0 6px 24px rgba(35, 25, 70, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: fadeUp 0.45s ease both;
+    position: relative;
+    overflow: hidden;
+}
+
+.rv-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7c3aed, #c084fc);
+    border-radius: 22px 22px 0 0;
+}
+
+.rv-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(35, 25, 70, 0.13);
+    border-color: #d8c7fa;
+}
+
+.rv-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.rv-card-pdf-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 14px;
+    background: #f0e9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.rv-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.rv-card-role {
+    font-size: 17px;
+    font-weight: 800;
+    color: #17172f;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rv-card-filename {
+    font-size: 12px;
+    color: #9292a8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rv-card-note {
+    font-size: 13px;
+    color: #6c6c7d;
+    margin-bottom: 18px;
+    flex: 1;
+    line-height: 1.5;
+}
+
+.rv-card-meta {
+    font-size: 11px;
+    color: #aaa9bd;
+    margin-bottom: 18px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.rv-card-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rv-btn-view,
+.rv-btn-edit,
+.rv-btn-delete,
+.rv-btn-download {
+    flex: 1;
+    padding: 9px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.rv-btn-view {
+    background: #7c3aed;
+    color: white;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+}
+
+.rv-btn-view:hover {
+    background: #6d28d9;
+    transform: translateY(-2px);
+}
+
+.rv-btn-download {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+/* Opens PDF in a new browser tab — no re-download */
+
+.rv-btn-download:hover {
+    background: #dcfce7;
+    transform: translateY(-2px);
+}
+
+.rv-btn-edit {
+    background: #faf5ff;
+    color: #7c3aed;
+    border: 1px solid #e9d5ff;
+}
+
+.rv-btn-edit:hover {
+    background: #f3e8ff;
+    transform: translateY(-2px);
+}
+
+.rv-btn-delete {
+    background: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #fed7d7;
+    min-width: 40px;
+    flex: 0 0 auto;
+    padding: 9px 14px;
+}
+
+.rv-btn-delete:hover {
+    background: #fed7d7;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.rv-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.rv-empty-icon {
+    font-size: 52px;
+    margin-bottom: 6px;
+    animation: floatingCard 4s ease-in-out infinite;
+}
+
+.rv-empty h3 {
+    font-size: 24px;
+    color: #17172f;
+}
+
+.rv-empty p {
+    color: #9292a8;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.rv-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 24px;
+    color: #9292a8;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   MODALS (shared)
+   ========================================================= */
+
+.rv-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 10, 28, 0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.rv-modal-overlay.rv-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.rv-modal {
+    width: 100%;
+    max-width: 520px;
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 36px;
+    box-shadow: 0 40px 100px rgba(20, 10, 60, 0.2);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.rv-modal-overlay.rv-open .rv-modal,
+.rv-modal-overlay.rv-open .rv-viewer-modal,
+.rv-modal-overlay.rv-open .rv-confirm-modal {
+    transform: translateY(0) scale(1);
+}
+
+.rv-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.rv-modal-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #17172f;
+}
+
+.rv-modal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #e5e4ed;
+    background: #faf8ff;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    color: #5e5e72;
+}
+
+.rv-modal-close:hover {
+    background: #f0e9ff;
+    color: #7c3aed;
+    transform: scale(1.1);
+}
+
+.rv-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+.rv-field {
+    margin-bottom: 20px;
+}
+
+.rv-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #27273e;
+    margin-bottom: 8px;
+}
+
+.rv-optional {
+    font-weight: 400;
+    color: #aaa9bd;
+}
+
+.rv-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #dddded;
+    background: #fdfcff;
+    font-size: 15px;
+    font-family: inherit;
+    color: #17172f;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rv-input:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.rv-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.rv-field-hint {
+    display: block;
+    font-size: 12px;
+    color: #aaa9bd;
+    margin-top: 5px;
+}
+
+.rv-form-error {
+    color: #e53e3e;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 18px;
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   FILE DROP ZONE
+   ========================================================= */
+
+.rv-file-drop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 28px 20px;
+    border-radius: 14px;
+    border: 2px dashed #d0c8f0;
+    background: #faf8ff;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background 0.25s ease;
+    text-align: center;
+}
+
+.rv-file-drop:hover,
+.rv-file-drop.rv-drag-over {
+    border-color: #7c3aed;
+    background: #f3e8ff;
+}
+
+.rv-file-drop.rv-file-chosen {
+    border-color: #7c3aed;
+    background: #f0e9ff;
+}
+
+.rv-file-drop-icon {
+    font-size: 28px;
+}
+
+.rv-file-drop span:not(.rv-file-drop-icon) {
+    font-size: 14px;
+    color: #6c6c7d;
+    font-weight: 500;
+}
+
+.rv-file-drop.rv-file-chosen span:not(.rv-file-drop-icon) {
+    color: #7c3aed;
+    font-weight: 700;
+}
+
+.rv-file-hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   PDF VIEWER MODAL
+   ========================================================= */
+
+.rv-viewer-modal {
+    width: 100%;
+    max-width: 860px;
+    height: 90vh;
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 28px;
+    box-shadow: 0 40px 100px rgba(20, 10, 60, 0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.rv-viewer-frame {
+    flex: 1;
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    background: #f7f6ff;
+}
+
+
+/* =========================================================
+   DELETE CONFIRM MODAL
+   ========================================================= */
+
+.rv-confirm-modal {
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 40px 32px;
+    box-shadow: 0 40px 100px rgba(20, 10, 60, 0.2);
+    text-align: center;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.rv-confirm-icon {
+    font-size: 42px;
+    margin-bottom: 14px;
+}
+
+.rv-confirm-modal h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #17172f;
+}
+
+.rv-confirm-modal p {
+    font-size: 14px;
+    color: #9292a8;
+    margin-bottom: 24px;
+}
+
+.rv-delete-confirm-btn {
+    padding: 13px 22px;
+    border-radius: 12px;
+    border: none;
+    background: #e53e3e;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.rv-delete-confirm-btn:hover {
+    background: #c53030;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TOAST NOTIFICATION
+   ========================================================= */
+
+.rv-toast {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    padding: 14px 22px;
+    border-radius: 14px;
+    background: #27273e;
+    color: #f4f3ff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    z-index: 2000;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    max-width: 320px;
+}
+
+.rv-toast.rv-toast-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rv-toast.rv-toast-success::before {
+    content: "✅  ";
+}
+
+.rv-toast.rv-toast-error::before {
+    content: "❌  ";
+}
+
+.rv-toast.rv-toast-info::before {
+    content: "ℹ️  ";
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode .rv-stats-bar,
+body.dark-mode .rv-card {
+    background: rgba(29, 29, 45, 0.85);
+    border-color: #35354a;
+}
+
+body.dark-mode .rv-stat-number {
+    color: #c4b5fd;
+}
+
+body.dark-mode .rv-stat-label {
+    color: #6c6c80;
+}
+
+body.dark-mode .rv-stat-divider {
+    background: #35354a;
+}
+
+body.dark-mode .rv-subtitle,
+body.dark-mode .rv-empty p,
+body.dark-mode .rv-card-note,
+body.dark-mode .rv-card-meta {
+    color: #aaa9bd;
+}
+
+body.dark-mode .rv-card-role {
+    color: #eeeaff;
+}
+
+body.dark-mode .rv-card-filename {
+    color: #68687b;
+}
+
+body.dark-mode .rv-card-pdf-icon {
+    background: #302347;
+}
+
+body.dark-mode .rv-empty h3,
+body.dark-mode .rv-empty {
+    color: #eeeaff;
+}
+
+body.dark-mode .rv-search,
+body.dark-mode .rv-select {
+    background: #1a1a2e;
+    border-color: #38384c;
+    color: #f4f3ff;
+}
+
+body.dark-mode .rv-search::placeholder {
+    color: #6c6c80;
+}
+
+body.dark-mode .rv-search:focus,
+body.dark-mode .rv-select:focus {
+    border-color: #7c3aed;
+}
+
+body.dark-mode .rv-modal,
+body.dark-mode .rv-viewer-modal,
+body.dark-mode .rv-confirm-modal {
+    background: #15152a;
+    color: #f4f3ff;
+}
+
+body.dark-mode .rv-modal-header h2,
+body.dark-mode .rv-confirm-modal h3 {
+    color: #eeeaff;
+}
+
+body.dark-mode .rv-modal-close {
+    background: #202033;
+    border-color: #38384c;
+    color: #aaa9bd;
+}
+
+body.dark-mode .rv-modal-close:hover {
+    background: #302347;
+    color: #c4b5fd;
+}
+
+body.dark-mode .rv-label {
+    color: #d0ceea;
+}
+
+body.dark-mode .rv-input {
+    background: #1e1e32;
+    border-color: #38384c;
+    color: #f4f3ff;
+}
+
+body.dark-mode .rv-input:focus {
+    border-color: #7c3aed;
+}
+
+body.dark-mode .rv-file-drop {
+    background: #1a1a2e;
+    border-color: #4a3f72;
+}
+
+body.dark-mode .rv-file-drop:hover,
+body.dark-mode .rv-file-drop.rv-drag-over {
+    background: #25183d;
+    border-color: #7c3aed;
+}
+
+body.dark-mode .rv-file-drop.rv-file-chosen {
+    background: #25183d;
+    border-color: #7c3aed;
+}
+
+body.dark-mode .rv-file-drop span:not(.rv-file-drop-icon) {
+    color: #aaa9bd;
+}
+
+body.dark-mode .rv-btn-edit {
+    background: #25183d;
+    border-color: #4e3c70;
+    color: #c4b5fd;
+}
+
+body.dark-mode .rv-btn-edit:hover {
+    background: #302347;
+}
+
+body.dark-mode .rv-btn-download {
+    background: #0f2318;
+    border-color: #166534;
+    color: #4ade80;
+}
+
+body.dark-mode .rv-btn-download:hover {
+    background: #14532d;
+}
+
+body.dark-mode .rv-btn-delete {
+    background: #2d1515;
+    border-color: #7f1d1d;
+    color: #fc8181;
+}
+
+body.dark-mode .rv-btn-delete:hover {
+    background: #3b1414;
+}
+
+body.dark-mode .rv-toast {
+    background: #eeeaff;
+    color: #17172f;
+}
+
+body.dark-mode .rv-header-text h1 {
+    color: #f4f3ff;
+}
+
+body.dark-mode .rv-card:hover {
+    border-color: #6541a0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .rv-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rv-stats-bar {
+        gap: 20px;
+        padding: 18px 20px;
+    }
+
+    .rv-modal {
+        padding: 26px 20px;
+    }
+
+    .rv-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rv-select {
+        min-width: unset;
+    }
+
+    .rv-card-actions {
+        gap: 8px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .rv-main {
+        padding: 40px 5% 80px;
+    }
+
+    .rv-header-text h1 {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+
+}

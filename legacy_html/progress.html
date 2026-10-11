@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Progress | Outside the Lines</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Outside the Lines
+        </div>
+
+
+        <div class="nav-right">
+
+            <a
+                href="dashboard.html"
+                class="login-btn"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="planner.html"
+                class="login-btn"
+            >
+                Planner
+            </a>
+
+
+            <a
+                href="notes.html"
+                class="login-btn"
+            >
+                Notes
+            </a>
+
+
+            <div class="date-time">
+
+                <span id="current-date"></span>
+
+                <span id="current-time"></span>
+
+            </div>
+
+
+            <button
+                id="theme-toggle"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= PROGRESS PAGE ================= -->
+
+    <main class="progress-container">
+
+
+        <!-- HEADER -->
+
+        <section class="progress-header">
+
+            <div>
+
+                <p class="small-heading">
+                    YOUR GROWTH
+                </p>
+
+
+                <h1>
+                    See Your Progress
+                </h1>
+
+
+                <p>
+                    Progress isn't about doing everything.
+                    It's about moving forward one step at a time.
+                </p>
+
+            </div>
+
+
+            <div class="progress-header-icon">
+                📈
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="progress-summary">
+
+
+            <!-- TOTAL TASKS -->
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Total Tasks
+                    </p>
+
+
+                    <h2 id="total-tasks">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COMPLETED -->
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Completed
+                    </p>
+
+
+                    <h2 id="completed-tasks">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PENDING -->
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Remaining
+                    </p>
+
+
+                    <h2 id="pending-tasks">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COMPLETION -->
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">
+                    🎯
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Completion
+                    </p>
+
+
+                    <h2 id="completion-percentage">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= OVERALL PROGRESS ================= -->
+
+        <section class="overall-progress-card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-heading">
+                        OVERALL
+                    </p>
+
+
+                    <h2>
+                        Your journey so far
+                    </h2>
+
+                </div>
+
+
+                <span id="progress-message">
+                    Start small 🌱
+                </span>
+
+            </div>
+
+
+            <div class="large-progress-number">
+
+                <span id="large-progress">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="large-progress-bar">
+
+                <div
+                    id="large-progress-fill"
+                    class="large-progress-fill"
+                ></div>
+
+            </div>
+
+
+            <p class="progress-helper">
+                Complete your planned tasks to build
+                your progress.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= SKILL PROGRESS ================= -->
+
+        <section class="skill-progress-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-heading">
+                        SKILLS
+                    </p>
+
+
+                    <h2>
+                        Progress by skill
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="skill-progress-list"
+                class="skill-progress-list"
+            >
+
+
+                <div
+                    id="empty-skill-progress"
+                    class="empty-progress"
+                >
+
+                    <div>
+                        📚
+                    </div>
+
+
+                    <h3>
+                        No progress yet
+                    </h3>
+
+
+                    <p>
+                        Complete some tasks to see
+                        your skill-wise progress.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MOTIVATION ================= -->
+
+        <section class="progress-motivation">
+
+            <div>
+                🌱
+            </div>
+
+
+            <h2>
+                Every completed task counts.
+            </h2>
+
+
+            <p>
+                You don't need to be perfect.
+                You just need to keep going.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Outside the Lines
+        </div>
+
+
+        <p>
+            Because everyone's journey is different.
+        </p>
+
+
+        <p class="copyright">
+            © 2026 Outside the Lines
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
